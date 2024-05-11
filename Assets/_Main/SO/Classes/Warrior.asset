@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f8c7837351fb04692b1375758e6a76, type: 3}
+  m_Name: Warrior
+  m_EditorClassIdentifier: 
+  id: warrior
+  className: Warrior
+  icon: {fileID: -1497189052, guid: 2219d9e148b910d489d2b52a186ccf48, type: 3}
+  prefabName: Characters/Warrior
+  baseHealth: 160
+  baseMana: 51
+  baseAttack: 16
+  baseDefense: 10
+  baseSpeed: 4
+  abilityInputs:
+  - ability: {fileID: 11400000, guid: 570488ca9b8f96f4895fde9c8d73f3f3, type: 2}
+    buttonName: Fire1
+  - ability: {fileID: 11400000, guid: 71c58e33ea7f1c3488c08de19f927070, type: 2}
+    buttonName: Fire2
+  passives:
+  - passiveName: Berserk Boost
+    info: Every time the warrior loses 10% of their max health, they gain a temporary
+      increase in attack, stacking up to 4 times.
+    icon: {fileID: 0}
+    condition: HasReceivedTenthDamage
+    effect: {fileID: 11400000, guid: 034ff16dcbd59cd4bae88089578c34e2, type: 2}

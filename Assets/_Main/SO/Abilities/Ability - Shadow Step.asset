@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2619445dd315a4d83175df2fa8e733, type: 3}
+  m_Name: Ability - Shadow Step
+  m_EditorClassIdentifier: 
+  id: attack_rogue_2
+  abilityName: Shadow Step
+  info: Teleports behind a nearby enemy to deliver a critical strike. This skill
+    is effective for repositioning and targeting weakened opponents.
+  icon: {fileID: 0}
+  prefabAbility: Weapons/Shadow Step
+  rangeType: 0
+  damageRate: 0
+  speed: 16
+  duration: 0.125
+  count: 1
+  spread: 0
+  isIgnoreDefense: 0
+  canPassThrough: 1
+  cooldown: 1.5
+  mana: 4

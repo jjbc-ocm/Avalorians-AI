@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f8c7837351fb04692b1375758e6a76, type: 3}
+  m_Name: Rogue
+  m_EditorClassIdentifier: 
+  id: rogue
+  className: Rogue
+  icon: {fileID: 1240676721, guid: 6f7350bca1dc25a46adcd5183daa33d3, type: 3}
+  prefabName: Characters/Rogue
+  baseHealth: 128
+  baseMana: 80
+  baseAttack: 16
+  baseDefense: 6
+  baseSpeed: 5
+  abilityInputs:
+  - ability: {fileID: 11400000, guid: 570488ca9b8f96f4895fde9c8d73f3f3, type: 2}
+    buttonName: Fire1
+  - ability: {fileID: 11400000, guid: 10d0173ec1764894bb9b41f0ce1068ea, type: 2}
+    buttonName: Fire2
+  passives:
+  - passiveName: Slippery
+    info: Whenever the rogue dodges an attack, they gain a temporary speed boost,
+      allowing for rapid repositioning and hit-and-run tactics.
+    icon: {fileID: 0}
+    condition: HasUsedAbilityNearEnemy
+    effect: {fileID: 11400000, guid: ceaa7e8e22d8e7f47a23dc48d6e2919f, type: 2}

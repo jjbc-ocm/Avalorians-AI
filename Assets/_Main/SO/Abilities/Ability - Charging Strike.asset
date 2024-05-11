@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2619445dd315a4d83175df2fa8e733, type: 3}
+  m_Name: Ability - Charging Strike
+  m_EditorClassIdentifier: 
+  id: attack_warrior_2
+  abilityName: Charging Strike
+  info: The warrior charges forward at high speed, damaging all enemies in their
+    path. This skill excels at breaking through enemy lines and inflicting damage
+    on multiple foes.
+  icon: {fileID: 0}
+  prefabAbility: Weapons/Charging Strike
+  rangeType: 0
+  damageRate: 6
+  speed: 8
+  duration: 0.5
+  count: 1
+  spread: 0
+  isIgnoreDefense: 0
+  canPassThrough: 1
+  cooldown: 1.2
+  mana: 24

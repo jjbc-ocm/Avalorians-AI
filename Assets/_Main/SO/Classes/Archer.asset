@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f8c7837351fb04692b1375758e6a76, type: 3}
+  m_Name: Archer
+  m_EditorClassIdentifier: 
+  id: archer
+  className: Archer
+  icon: {fileID: 51029369, guid: eff987eab074bde468e42e1f5ac2187a, type: 3}
+  prefabName: Characters/Archer
+  baseHealth: 128
+  baseMana: 64
+  baseAttack: 20
+  baseDefense: 6
+  baseSpeed: 5
+  abilityInputs:
+  - ability: {fileID: 11400000, guid: 4591f78900eb8404190cc7c21fd5c8f7, type: 2}
+    buttonName: Fire1
+  - ability: {fileID: 11400000, guid: a3d7d2d2e7aba0846b6d5f294a68c38d, type: 2}
+    buttonName: Fire2
+  passives:
+  - passiveName: Eagle Eye
+    info: Increases the damage of projectiles based on the distance they travel,
+      encouraging long-range combat tactics.
+    icon: {fileID: 0}
+    condition: IsAlwaysActive
+    effect: {fileID: 11400000, guid: 3977e259e68e1b14f97492e5fc961400, type: 2}
