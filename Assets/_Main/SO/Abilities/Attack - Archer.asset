@@ -15,7 +15,7 @@ MonoBehaviour:
   id: attack_archer_1
   abilityName: Attack
   info: Basic archer ranged attack.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9ef71e342246e4c35962b08bfa9f02a5, type: 3}
   prefabAbility: Weapons/Arrow
   rangeType: 1
   damageRate: 1

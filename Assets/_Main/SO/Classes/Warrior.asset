@@ -16,7 +16,7 @@ MonoBehaviour:
   className: Warrior
   icon: {fileID: -1497189052, guid: 2219d9e148b910d489d2b52a186ccf48, type: 3}
   prefabName: Characters/Warrior
-  baseHealth: 160
+  baseHealth: 320
   baseMana: 51
   baseAttack: 16
   baseDefense: 10
@@ -30,6 +30,6 @@ MonoBehaviour:
   - passiveName: Berserk Boost
     info: Every time the warrior loses 10% of their max health, they gain a temporary
       increase in attack, stacking up to 4 times.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 36cfde2c8f6ef4959bff561dbdd09f6a, type: 3}
     condition: HasReceivedTenthDamage
     effect: {fileID: 11400000, guid: 034ff16dcbd59cd4bae88089578c34e2, type: 2}

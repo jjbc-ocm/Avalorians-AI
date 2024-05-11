@@ -15,7 +15,7 @@ MonoBehaviour:
   effectName: Eagle Eye
   info: Increases the damage of projectiles based on the distance they travel, encouraging
     long-range combat tactics.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5c288a2e49db7481783d278f2ff3a420, type: 3}
   effects:
   - key: eagle_eye
     value: 0.5

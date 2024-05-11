@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: Attack Up
   info: Temporarily increase attack by 125% for 8 seconds. Can stack 4 times.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 36cfde2c8f6ef4959bff561dbdd09f6a, type: 3}
   effects:
   - key: attack
     value: 0.125

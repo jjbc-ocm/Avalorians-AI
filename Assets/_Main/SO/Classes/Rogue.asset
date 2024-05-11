@@ -16,13 +16,13 @@ MonoBehaviour:
   className: Rogue
   icon: {fileID: 1240676721, guid: 6f7350bca1dc25a46adcd5183daa33d3, type: 3}
   prefabName: Characters/Rogue
-  baseHealth: 128
+  baseHealth: 256
   baseMana: 80
   baseAttack: 16
   baseDefense: 6
   baseSpeed: 5
   abilityInputs:
-  - ability: {fileID: 11400000, guid: 570488ca9b8f96f4895fde9c8d73f3f3, type: 2}
+  - ability: {fileID: 11400000, guid: f1e4b6dd6a043e24f91a58e037d44b13, type: 2}
     buttonName: Fire1
   - ability: {fileID: 11400000, guid: 10d0173ec1764894bb9b41f0ce1068ea, type: 2}
     buttonName: Fire2
@@ -30,6 +30,6 @@ MonoBehaviour:
   - passiveName: Slippery
     info: Whenever the rogue dodges an attack, they gain a temporary speed boost,
       allowing for rapid repositioning and hit-and-run tactics.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: cb06b92c36c5d48d48323acc8e4ebe7d, type: 3}
     condition: HasUsedAbilityNearEnemy
     effect: {fileID: 11400000, guid: ceaa7e8e22d8e7f47a23dc48d6e2919f, type: 2}

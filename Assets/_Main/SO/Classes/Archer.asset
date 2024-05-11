@@ -16,7 +16,7 @@ MonoBehaviour:
   className: Archer
   icon: {fileID: 51029369, guid: eff987eab074bde468e42e1f5ac2187a, type: 3}
   prefabName: Characters/Archer
-  baseHealth: 128
+  baseHealth: 256
   baseMana: 64
   baseAttack: 20
   baseDefense: 6
@@ -30,6 +30,6 @@ MonoBehaviour:
   - passiveName: Eagle Eye
     info: Increases the damage of projectiles based on the distance they travel,
       encouraging long-range combat tactics.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 5c288a2e49db7481783d278f2ff3a420, type: 3}
     condition: IsAlwaysActive
     effect: {fileID: 11400000, guid: 3977e259e68e1b14f97492e5fc961400, type: 2}

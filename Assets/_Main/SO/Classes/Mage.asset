@@ -16,7 +16,7 @@ MonoBehaviour:
   className: Mage
   icon: {fileID: 88759717, guid: 99c3bfc96fe7dd04b904c4b5a86f7a49, type: 3}
   prefabName: Characters/Mage
-  baseHealth: 102
+  baseHealth: 204
   baseMana: 80
   baseAttack: 20
   baseDefense: 8
@@ -30,6 +30,6 @@ MonoBehaviour:
   - passiveName: Mana Shield
     info: Mana absorbs 33% of incoming damage, until the mage's mana is depleted,
       providing a durable defense that scales with mana reserves.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: eb855b7294d754e1f9cd80e101000574, type: 3}
     condition: IsAlwaysActive
     effect: {fileID: 11400000, guid: 88aeffa9b9829ac44aaed0ecf58fe747, type: 2}

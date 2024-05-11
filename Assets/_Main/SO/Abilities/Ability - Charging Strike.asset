@@ -17,7 +17,7 @@ MonoBehaviour:
   info: The warrior charges forward at high speed, damaging all enemies in their
     path. This skill excels at breaking through enemy lines and inflicting damage
     on multiple foes.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 36cfde2c8f6ef4959bff561dbdd09f6a, type: 3}
   prefabAbility: Weapons/Charging Strike
   rangeType: 0
   damageRate: 6
@@ -27,5 +27,5 @@ MonoBehaviour:
   spread: 0
   isIgnoreDefense: 0
   canPassThrough: 1
-  cooldown: 1.2
+  cooldown: 12
   mana: 24

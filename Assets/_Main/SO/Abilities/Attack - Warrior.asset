@@ -15,7 +15,7 @@ MonoBehaviour:
   id: attack_warrior_1
   abilityName: Attack
   info: Basic warrior melee attack.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 826e44f0d0c334f8796ccbc3cbec5084, type: 3}
   prefabAbility: Weapons/Slash Collider
   rangeType: 0
   damageRate: 1.5

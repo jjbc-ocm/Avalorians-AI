@@ -15,7 +15,7 @@ MonoBehaviour:
   effectName: Mana Shield
   info: Mana absorbs 33% of incoming damage, until the mage's mana is depleted, providing
     a durable defense that scales with mana reserves.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: eb855b7294d754e1f9cd80e101000574, type: 3}
   effects:
   - key: mana_shield
     value: 0.33

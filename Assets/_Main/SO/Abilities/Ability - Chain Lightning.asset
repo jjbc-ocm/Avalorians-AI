@@ -15,9 +15,9 @@ MonoBehaviour:
   id: attack_mage_2
   abilityName: Chain Lightning
   info: Release a lightning bolt at the nearest enemy within 2 units. If it hits,
-    it can chain to two more enemies within 2 units. The skill fails if no enemies
-    are initially in range, highlighting the importance of enemy proximity.
-  icon: {fileID: 0}
+    it can chain to two more enemies within 2 units, highlighting the importance
+    of enemy proximity.
+  icon: {fileID: 21300000, guid: e981e7bcded964e30aed8cb51d760dd4, type: 3}
   prefabAbility: Weapons/Chain Lightning
   rangeType: 1
   damageRate: 2

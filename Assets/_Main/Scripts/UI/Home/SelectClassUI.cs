@@ -30,6 +30,16 @@ public class SelectClassUI : UI<SelectClassUI>
         {
             self.Selected = data;
         });
+
+        AbilitiesUI.Instance.Show(self =>
+        {
+            self.Selected = data;
+        });
+
+        StatsUI.Instance.Show(self =>
+        {
+            self.Selected = data;
+        });
     }
 
     protected override void OnRefresh()

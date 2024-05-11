@@ -17,7 +17,7 @@ MonoBehaviour:
   info: The hunter unleashes a volley of 5 arrows in a wide arc, capable of striking
     multiple targets at various angles. Ideal for engaging groups of enemies and
     in open combat scenarios.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6d6e6449a6db74124b7e4995a356f647, type: 3}
   prefabAbility: Weapons/Volley Fire
   rangeType: 1
   damageRate: 2

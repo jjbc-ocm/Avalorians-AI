@@ -41,6 +41,8 @@ public class Character : MonoBehaviourPun
 
         stats.OnDeadChanged += Stats_OnDeadChanged;
         stats.OnInvisibleChanged += Stats_OnInvisibleChanged;
+
+        if (!photonView.IsMine) return;
     }
 
     private void Start()

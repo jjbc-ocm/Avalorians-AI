@@ -29,25 +29,24 @@ public class CharacterStats : MonoBehaviourPun, IPunObservable
     private short cacheDamageReceived;
     private float cacheAbilityDistanceNearEnemy;
     private float cacheDeltaTime;
+    private float cacheRespawnTime;
 
     public event Action<short, short> OnHealthChanged;
     public event Action<short, short> OnManaChanged;
     public event Action<bool> OnDeadChanged;
     public event Action<bool> OnInvisibleChanged;
+    public event Action<AppliedEffectInfo> OnAddAppliedEffect;
+    public event Action<AppliedEffectInfo> OnRemoveAppliedEffect;
+    public event Action<List<AppliedEffectInfo>> OnAppliedEffectsUpdated;
+    public event Action<List<AbilityCooldownInfo>> OnAbilityCooldownsUpdated;
 
     public ClassSO Data => data;
 
     public short Attack => (short)(attack * (1 + GetEffectValue("attack")));
 
-    
-
     public short Defense => (short)(defense * (1 + GetEffectValue("defense")));
 
     public float Speed => speed * (1 + GetEffectValue("speed"));
-
-    public List<AppliedEffectInfo> AppliedEffects => appliedEffects;
-
-    public List<AbilityCooldownInfo> AbilityCooldowns => abilityCooldowns;
 
     public short CacheDamageReceived 
     { 
@@ -125,12 +124,16 @@ public class CharacterStats : MonoBehaviourPun, IPunObservable
 
         if (current == null)
         {
-            appliedEffects.Add(new AppliedEffectInfo
+            var newAppliedEffect = new AppliedEffectInfo
             {
                 Effect = effect,
                 Stack = 1,
                 Duration = effect.Duration
-            });
+            };
+
+            appliedEffects.Add(newAppliedEffect);
+
+            OnAddAppliedEffect?.Invoke(newAppliedEffect);
         }
         else
         {
@@ -172,12 +175,14 @@ public class CharacterStats : MonoBehaviourPun, IPunObservable
 
         foreach (var abilityInput in data.AbilityInputs)
         {
-            abilityCooldowns.Add(new AbilityCooldownInfo
+            var abilityCooldown = new AbilityCooldownInfo
             {
                 Ability = abilityInput.Ability,
                 ButtonName = abilityInput.ButtonName,
                 Cooldown = 0
-            });
+            };
+
+            abilityCooldowns.Add(abilityCooldown);
         }
     }
 
@@ -190,19 +195,32 @@ public class CharacterStats : MonoBehaviourPun, IPunObservable
 
         if (cacheDeltaTime >= 1)
         {
-            SetMana((short)Mathf.Min(serialMana + 2, serialMaxMana));
+            SetMana((short)Mathf.Min(serialMana + 4, serialMaxMana));
 
             cacheDeltaTime -= 1;
+        }
+
+        // If player is dead, respawn after respawn timer
+        if (IsDead())
+        {
+            cacheRespawnTime += Time.deltaTime;
+
+            if (cacheRespawnTime >= 5)
+            {
+                cacheRespawnTime = 0;
+
+                SetDead(false);
+            }
         }
 
         // Attacking and cooldown
         foreach (var abilityCooldown in abilityCooldowns)
         {
-            abilityCooldown.Cooldown += 1f / abilityCooldown.Ability.Cooldown * Time.deltaTime;
+            abilityCooldown.Cooldown = Mathf.Min(abilityCooldown.Cooldown + Time.deltaTime, abilityCooldown.Ability.Cooldown);
 
             if (Input.GetButton(abilityCooldown.ButtonName) && !IsDead() && 
                 abilityCooldown.Ability.Mana <= serialMana && 
-                abilityCooldown.Cooldown >= 1)
+                abilityCooldown.Cooldown >= abilityCooldown.Ability.Cooldown)
             {
                 animator.SetBool("isAttacking", true);
 
@@ -214,6 +232,8 @@ public class CharacterStats : MonoBehaviourPun, IPunObservable
             }
         }
 
+        OnAbilityCooldownsUpdated?.Invoke(abilityCooldowns);
+
         // Always check if passive can apply the effect
         foreach (var passive in data.Passives)
         {
@@ -224,13 +244,27 @@ public class CharacterStats : MonoBehaviourPun, IPunObservable
         }
 
         // Reduce cooldowns of effects
+        var removedEffects = new List<AppliedEffectInfo>();
+
         foreach (var effect in appliedEffects)
         {
             effect.Duration -= Time.deltaTime;
+
+            if (effect.Duration <= 0)
+            {
+                removedEffects.Add(effect);
+            }
         }
 
+        OnAppliedEffectsUpdated?.Invoke(appliedEffects);
+
         // Remove effects that already expired
-        appliedEffects = appliedEffects.Where(i => i.Duration > 0).ToList();
+        foreach (var removedEffect in removedEffects)
+        {
+            appliedEffects.Remove(removedEffect);
+
+            OnRemoveAppliedEffect?.Invoke(removedEffect);
+        }
     }
 
     private void OnDestroy()
@@ -277,6 +311,12 @@ public class CharacterStats : MonoBehaviourPun, IPunObservable
         return accumulated;
     }
 
+    private void SetupRespawn()
+    {
+        GameManager.Instance.ResetPosition(photonView);
+        SetHealth(data.BaseHealth);
+    }
+
     #region Photon
 
     [PunRPC]
@@ -298,6 +338,8 @@ public class CharacterStats : MonoBehaviourPun, IPunObservable
             cacheDamageReceived = 0;
 
             SetDead(true);
+
+            SetupRespawn();
         }
         else
         {

@@ -16,7 +16,7 @@ MonoBehaviour:
   abilityName: Shadow Step
   info: Teleports behind a nearby enemy to deliver a critical strike. This skill
     is effective for repositioning and targeting weakened opponents.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9ca7b6b481b7748719224b0e2c855fec, type: 3}
   prefabAbility: Weapons/Shadow Step
   rangeType: 0
   damageRate: 0

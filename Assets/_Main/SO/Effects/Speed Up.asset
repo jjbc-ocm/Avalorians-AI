@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: Speed Up
   info: 'Temporarily increase speed by 50% for 8 seconds. '
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: cb06b92c36c5d48d48323acc8e4ebe7d, type: 3}
   effects:
   - key: speed
     value: 0.5

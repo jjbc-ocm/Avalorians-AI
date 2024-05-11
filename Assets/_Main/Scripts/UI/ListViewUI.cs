@@ -16,6 +16,20 @@ public abstract class ListViewUI<S, T> : UI<T>
     [SerializeField]
     private Transform uiItemView;
 
+    protected void AddItem<Data>(Data data, Action<S, Data, int> onBeforeRefresh)
+    {
+        if (items == null)
+        {
+            items = new List<S>();
+        }
+
+        var newItem = Instantiate(prefabItem, uiItemView);
+
+        newItem.Refresh((self) => onBeforeRefresh(self, data, items.Count));
+
+        items.Add(newItem);
+    }
+
     protected void DeleteItems()
     {
         if (items == null)
@@ -44,11 +58,13 @@ public abstract class ListViewUI<S, T> : UI<T>
         {
             if (!isInitialized)
             {
-                var newItem = Instantiate(prefabItem, uiItemView);
+                /*var newItem = Instantiate(prefabItem, uiItemView);
 
                 newItem.Refresh((self) => onBeforeRefresh(self, datum, index));
 
-                items.Add(newItem);
+                items.Add(newItem);*/
+
+                AddItem(datum, onBeforeRefresh);
             }
             else
             {

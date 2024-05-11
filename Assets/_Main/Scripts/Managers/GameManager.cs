@@ -3,6 +3,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : PunSingleton<GameManager>
 {
@@ -37,5 +38,20 @@ public class GameManager : PunSingleton<GameManager>
                 Debug.Log("Property key: " + key + " value: " + PhotonNetwork.LocalPlayer.CustomProperties[key]);
             }
         }
+    }
+
+    public void ResetPosition(PhotonView photonView)
+    {
+        if (photonView.Owner.CustomProperties.TryGetValue("index", out object indexValue))
+        {
+            int spawnIndex = (int)indexValue;
+
+            photonView.transform.position = playerSpawners[spawnIndex].position;
+        }
+    }
+
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene("Home");
     }
 }
